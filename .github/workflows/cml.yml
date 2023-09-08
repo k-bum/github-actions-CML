@@ -4,15 +4,15 @@ jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
       - uses: actions/setup-node@v3
         with:
           node-version: 16
       - uses: iterative/setup-cml@v1
       - name: Train model
         env:
-          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO_TOKEN: ${{ secrets.MY_TOKEN }}
         run: |
           pip install -r requirements.txt
           python train.py
